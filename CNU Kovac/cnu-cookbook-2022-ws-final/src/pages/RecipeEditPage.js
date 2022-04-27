@@ -73,22 +73,7 @@ export function RecipeEditPage() {
             <EditForm
               newRecipe={newRecipe}
               ulozHandler={ulozHandler}
-              setTitle={(title) =>
-                setNewRecipe((old) => ({ ...old, title: title }))
-              }
-              setPreparationTime={(prepTime) =>
-                setNewRecipe((old) => ({ ...old, preparationTime: prepTime }))
-              }
-              setServingCount={(servCount) =>
-                setNewRecipe((old) => ({ ...old, servingCount: servCount }))
-              }
-              setSideDish={(sideDish) =>
-                setNewRecipe((old) => ({ ...old, sideDish: sideDish }))
-              }
-              setIngredients={(ingredient) => delIngredientHandler(ingredient)}
-              setDirections={(d) =>
-                setNewRecipe((old) => ({ ...old, directions: d }))
-              }
+              setNewRecipe={setNewRecipe}
               clickHandler={(ingredient) => addIngredientHandler(ingredient)}
               onChangeHandler={(d) =>
                 setNewRecipe((old) => ({ ...old, directions: d }))

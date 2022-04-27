@@ -8,7 +8,6 @@ import { useNavigate } from 'react-router-dom';
 
 export function RecipeAddPage() {
   const [newRecipe, setNewRecipe] = useState({
-    title: 'Novy recept',
     preparationTime: 0,
     directions: '',
     ingredients: [],
@@ -34,8 +33,8 @@ export function RecipeAddPage() {
   };
   const navigate = useNavigate();
 
-  const ulozHandler = () => {
-    if (newRecipe.title !== '' && newRecipe.title !== 'Novy recept') {
+  const saveHandler = () => {
+    if (newRecipe.title) {
       api
         .post(`/recipes`, newRecipe)
         .then((response) => {
@@ -52,23 +51,8 @@ export function RecipeAddPage() {
       <Row>
         <EditForm
           newRecipe={newRecipe}
-          ulozHandler={ulozHandler}
-          setTitle={(title) =>
-            setNewRecipe((old) => ({ ...old, title: title }))
-          }
-          setPreparationTime={(prepTime) =>
-            setNewRecipe((old) => ({ ...old, preparationTime: prepTime }))
-          }
-          setServingCount={(servCount) =>
-            setNewRecipe((old) => ({ ...old, servingCount: servCount }))
-          }
-          setSideDish={(sideDish) =>
-            setNewRecipe((old) => ({ ...old, sideDish: sideDish }))
-          }
-          setIngredients={(ingredient) => delIngredientHandler(ingredient)}
-          setDirections={(d) =>
-            setNewRecipe((old) => ({ ...old, directions: d }))
-          }
+          saveHandler={saveHandler}
+          setNewRecipe={setNewRecipe}
           clickHandler={(ingredient) => addIngredientHandler(ingredient)}
           onChangeHandler={(d) =>
             setNewRecipe((old) => ({ ...old, directions: d }))

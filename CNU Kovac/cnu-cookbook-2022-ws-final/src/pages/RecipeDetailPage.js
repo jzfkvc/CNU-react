@@ -57,9 +57,9 @@ export function RecipeDetailPage() {
               <h1>{recipe.title}</h1>
             </Col>
             <Col lg={2}>
-              <Button href={`/recipe/${slug}/edit`}>Edit</Button>
+              <Button href={`/recipe/${slug}/edit`}>Uprav</Button>
               <Button href={`/`} onClick={delHandler}>
-                Del
+                Vymaz
               </Button>
             </Col>
           </Row>

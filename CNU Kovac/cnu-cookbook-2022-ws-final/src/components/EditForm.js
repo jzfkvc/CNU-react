@@ -14,10 +14,14 @@ export function EditForm(props) {
     <Form>
       <Row>
         <Col lg={10}>
-          <h1>{props.newRecipe.title}</h1>
+          {props.newRecipe.title ? (
+            <h1>{props.newRecipe.title}</h1>
+          ) : (
+            <h1>Novy recept</h1>
+          )}
         </Col>
         <Col lg={2}>
-          <Button onClick={props.ulozHandler}>uloz</Button>
+          <Button onClick={props.saveHandler}>uloz</Button>
           {props.slug ? (
             <Button href={`/recipe/${props.slug}`}>zrus</Button>
           ) : (
@@ -26,7 +30,9 @@ export function EditForm(props) {
         </Col>
         <TitleEdit
           title={props.newRecipe.title}
-          setTitle={(title) => props.setTitle(title)}
+          setTitle={(title) =>
+            props.setNewRecipe((old) => ({ ...old, title: title }))
+          }
         />
       </Row>
       <Row>
@@ -34,16 +40,23 @@ export function EditForm(props) {
           <PrepTimeEdit
             preparationTime={props.newRecipe.preparationTime}
             setPreparationTime={(prepTime) => {
-              props.setPreparationTime(prepTime);
+              props.setNewRecipe((old) => ({
+                ...old,
+                preparationTime: prepTime,
+              }));
             }}
           />
           <ServCountEdit
             servCount={props.newRecipe.servingCount}
-            setServingCount={(servCount) => props.setServingCount(servCount)}
+            setServingCount={(servCount) =>
+              props.setNewRecipe((old) => ({ ...old, servingCount: servCount }))
+            }
           />
           <SideDishEdit
             sideDish={props.newRecipe.sideDish}
-            setSideDish={(sideDish) => props.setSideDish(sideDish)}
+            setSideDish={(sideDish) =>
+              props.setNewRecipe((old) => ({ ...old, sideDish: sideDish }))
+            }
           />
         </Col>
         <Col lg={4}>
@@ -67,7 +80,9 @@ export function EditForm(props) {
         <Col lg={6}>
           <DirectionsEdit
             directions={props.newRecipe.directions}
-            onChangeHandler={(newValue) => props.setDirections(newValue)}
+            onChangeHandler={(directions) =>
+              props.setNewRecipe((old) => ({ ...old, directions: directions }))
+            }
           />
         </Col>
       </Row>

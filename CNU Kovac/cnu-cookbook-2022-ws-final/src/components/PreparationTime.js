@@ -10,12 +10,12 @@ export function PreparationTime(props) {
           {Math.floor(props.preparationTime / 60) > 0 ? (
             <>{Math.floor(props.preparationTime / 60)} h</>
           ) : (
-            <></>
+            ''
           )}{' '}
           {props.preparationTime % 60 > 0 ? (
             <>{props.preparationTime % 60} min</>
           ) : (
-            <></>
+            ''
           )}{' '}
         </h5>
       )}
