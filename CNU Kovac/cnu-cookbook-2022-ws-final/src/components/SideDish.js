@@ -4,7 +4,7 @@ import { FaUtensilSpoon } from 'react-icons/fa';
 export function SideDish(props) {
   return (
     <h5>
-      {typeof props.sideDish !== 'undefined' && (
+      {props.sideDish && (
         <>
           <FaUtensilSpoon /> {props.sideDish}
         </>

@@ -7,10 +7,7 @@ export default function Ingredient({ ingredient, servCount }) {
         <td>{ingredient.name}</td>
       ) : (
         <>
-          {typeof ingredient.amount !== 'undefined' &&
-          ingredient.amount !== null &&
-          ingredient.amount !== 0 &&
-          typeof servCount !== 'undefined' ? (
+          {ingredient.amount && servCount ? (
             <td>{ingredient.amount * servCount}</td>
           ) : (
             <td>{ingredient.amount !== 0 && ingredient.amount}</td>

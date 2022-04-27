@@ -18,7 +18,7 @@ export function EditForm(props) {
         </Col>
         <Col lg={2}>
           <Button onClick={props.ulozHandler}>uloz</Button>
-          {typeof props.slug !== 'undefined' ? (
+          {props.slug ? (
             <Button href={`/recipe/${props.slug}`}>zrus</Button>
           ) : (
             <Button href={`/`}>zrus</Button>

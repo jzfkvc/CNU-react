@@ -8,7 +8,7 @@ export function IngredientEditTable(props) {
   };
   return (
     <>
-      {typeof props.ingredients !== 'undefined' && (
+      {props.ingredients && (
         <FormGroup>
           <Label for="ingredients">Ingrediencie: </Label>
           <Table id="ingredients">

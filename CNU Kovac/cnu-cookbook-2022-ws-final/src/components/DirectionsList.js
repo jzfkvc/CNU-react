@@ -4,7 +4,7 @@ import { List } from 'reactstrap';
 export function DirectionsList({ directions }) {
   return (
     <>
-      {typeof directions !== 'undefined' && (
+      {directions && (
         <List type="unstyled">
           <ul>
             {directions

@@ -53,13 +53,11 @@ export function RecipeEditPage() {
     }));
   };
   const addIngredientHandler = (ingredient) => {
-    if (typeof ingredient.name !== 'undefined') {
-      if (ingredient.name !== '') {
-        setNewRecipe((old) => ({
-          ...old,
-          ingredients: [...old.ingredients, ingredient],
-        }));
-      }
+    if (ingredient.name) {
+      setNewRecipe((old) => ({
+        ...old,
+        ingredients: [...old.ingredients, ingredient],
+      }));
     }
   };
 
@@ -69,7 +67,7 @@ export function RecipeEditPage() {
       {error && (
         <Alert color="danger">Vyskytla se chyba při načítání dat</Alert>
       )}
-      {typeof newRecipe !== 'undefined' && (
+      {newRecipe && (
         <Container>
           <Row>
             <EditForm

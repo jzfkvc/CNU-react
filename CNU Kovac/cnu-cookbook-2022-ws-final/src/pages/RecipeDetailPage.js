@@ -50,7 +50,7 @@ export function RecipeDetailPage() {
       {error && (
         <Alert color="danger">Vyskytla se chyba při načítání dat</Alert>
       )}
-      {typeof recipe !== 'undefined' && (
+      {recipe && (
         <Container>
           <Row>
             <Col lg={10}>

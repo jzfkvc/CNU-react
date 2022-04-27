@@ -4,7 +4,7 @@ import { Input, Label } from 'reactstrap';
 export default function ServCount(props) {
   return (
     <p>
-      {typeof props.servCount !== 'undefined' && (
+      {props.servCount && (
         <>
           <Label for="servingCaount">Pocet porcii:</Label>
           <Input
